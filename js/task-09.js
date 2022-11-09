@@ -3,11 +3,12 @@ const colorText = document.querySelector('.color');
 const body = document.querySelector('body');
 
 function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  let randomColor = `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
+  body.style.backgroundColor = randomColor; 
+  colorText.textContent = randomColor;
 }
 
-function changeColor(event) {
- document.body.style.background = getRandomHexColor(); 
-  colorText.textContent = getRandomHexColor();
-}
- button.addEventListener("click", changeColor);
+ button.addEventListener("click", getRandomHexColor);
+ 
